@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposecodelabs.ui.theme.JetPackComposeCodelabsTheme
@@ -80,7 +81,15 @@ fun Greeting(name: String) {
                     .padding(bottom = extraPadding.coerceAtLeast(0.dp))
             ) {
                 Text(text = "Hello,")
-                Text(text = name,style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.ExtraBold))
+                Text(
+                    text = name,
+                    style = MaterialTheme.typography.h4.copy(fontWeight = FontWeight.ExtraBold)
+                )
+                if (expanded) Text(
+                    text = stringResource(R.string.dummy_text),
+                    style = MaterialTheme.typography.body1,
+                    textAlign = TextAlign.Justify
+                )
             }
             IconButton(onClick = { expanded = !expanded }) {
                 Icon(
@@ -90,7 +99,6 @@ fun Greeting(name: String) {
                     } else {
                         stringResource(R.string.show_more)
                     }
-
                 )
             }
         }
